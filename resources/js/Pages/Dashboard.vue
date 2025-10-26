@@ -21,7 +21,7 @@ import { Head } from '@inertiajs/vue3';
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg"
                 >
                     <div class="p-6 text-gray-900">
-                        You're logged in!
+                        <a href="/admin/recommend-items" class="text-blue-500 hover:underline">おすすめ編集ページ</a>
                     </div>
                 </div>
             </div>
