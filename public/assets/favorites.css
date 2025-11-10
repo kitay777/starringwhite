@@ -1,0 +1,127 @@
+/* ===============================
+   favorites.css
+   STARRING WHITE 用 お気に入り機能
+=================================*/
+
+/* --- 商品詳細・一覧のハート --- */
+.fav-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fav-btn::before {
+  content: "♡";
+  color: #aaa;
+  font-size: 1em;
+  width: 1em;
+  text-align: center;
+  display: inline-block;
+  transition: color 0.2s ease;
+  vertical-align: middle;
+}
+
+.fav-btn:hover::before,
+.fav-btn.is-active::before {
+  color: #e74c3c;
+}
+
+.fav-btn.is-active::before {
+  content: "♥";
+}
+
+/* --- 固定フローティングボタン --- */
+#favFloatBtn {
+  position: fixed;
+  right: 100px;
+  bottom: 20px;
+  z-index: 2147483647;
+}
+
+#favFloatBtn a {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #e74c3c;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+  padding: 6px;
+  transition: transform 0.2s ease;
+}
+#favFloatBtn a:hover {
+  transform: scale(1.2);
+}
+
+/* --- favorites.html ページ --- */
+body.favorites-page {
+  font-family: "Noto Sans JP", sans-serif;
+  background: #fafafa;
+  margin: 0;
+  padding: 40px 20px 60px;
+  color: #333;
+}
+
+body.favorites-page h1 {
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: .05em;
+  margin-bottom: 30px;
+}
+
+.fav-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.fav-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.fav-item:hover {
+  transform: translateY(-3px);
+}
+.fav-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.fav-item h2 {
+  font-size: 14px;
+  padding: 10px 8px 4px;
+  color: #222;
+  line-height: 1.5;
+}
+.fav-item .price {
+  font-size: 13px;
+  color: #777;
+  padding-bottom: 10px;
+}
+.empty {
+  text-align: center;
+  font-size: 15px;
+  color: #666;
+  margin-top: 80px;
+}
+a.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+}
