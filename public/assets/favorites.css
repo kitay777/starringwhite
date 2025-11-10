@@ -1,127 +1,392 @@
-/* ===============================
-   favorites.css
-   STARRING WHITE 用 お気に入り機能
-=================================*/
+    #header {
+			background: {color:headerBgColor};
+		}
+		.sb-slidebar{
+			background: {color:sideMenuBgColor};
+		}
+		.childCategoryList01_child,
+		.childCategoryList01_link,
+		.headerNavColor,
+		.appsItemCategoryTag_lowerLink,
+		.categoryTitle01,
+		.sectionTitle,
+    .noItemsLabel,
+    .breadcrumb__notlink,
+    .innerCategory .breadcrumb li:after,
+    #about .inner p,
+    #mainFooter .footerMenu .copyright,
+		.relatedItems ul li .itemTitle,
+		.itemDetail .purchase .itemTitle,
+		.itemDetail .purchase .itemDescription,
+		.itemDetail .purchase #itemSelect .purchaseElement label,
+    .itemDetail .socialWrapper p,
+    .purchase #itemSelect .itemOption__name,
+    .purchase #itemSelect .itemOption__caption,
+    .purchase #itemSelect .itemOption__count,
+		.review01__title,.review01__tabChild,.review01__list,
+		#about .shopIntro, #about .aboutTxt,
+		#notPublic p,
+    .blogContainer .blogBody .text,
+    #blog .main #about.blogDetail .blog_publish .publish_date,
+    .blogContainer .blogPublish .publish_date,
+    #blog .blogDetail .social .shareTitle,
+    #blog .main #about .blog_inner .blog_publish .publish_date,
+		#contact .inquirySection h1, #contact .inquirySection p,
+		#contact .inquirySection form dl dt,
+		#contact .inquirySection form dl dd,
+		#appsItemDetailCustom #appsItemDetailCustomTag .appsItemDetailCustomTag_heading,
+		#appsItemDetailCustom #appsItemDetailCustomTag .appsItemDetailCustomTag_description,
+		.communityItemTitle, .communityMain,
+    .membership .content,
+    #membership .mypage,
+    #membership .mypage .logout,
+    #membership .mypage .leave-wrapper .leave,
+    #membership .login .heading,
+    #membership .login .register-description,
+    #membership .draft .message,
+    #membership .draft .leave-wrapper .leave,
+    #membership .guide .register,
+    #membership .guide .register .mail-magazine .mail-magazine-wrapper .label,
+    #privacy, #law,
+    #contact .explanation, .mail-magazine-title, .mail-magazine-text, .x_mailMagazineSubscribe_confirm {
+			color: {color:keyColor};
+		}
+    #membership .mypage .content .bar {
+      background-color: {color:keyColor} !important;
+    }
+    .blog_body font, .blog_body i, .blog_body span, .blog_body,
+    #membership .login .register-link {
+      color: {color:keyColor} !important;
+    }
+    #blog .main #about.blogDetail .blog_publish .line,
+    #appsItemDetailCustom #appsItemDetailCustomTag .appsItemDetailCustomTag_heading .line, #blog .main #about.blogDetail h3 .line {
+      background-color: {color:keyColor};
+    }
+    #blog .main #about.blogDetail .blog_inner {
+      border-bottom: 1px solid {color:keyColor} !important;
+    }
+    #blog .main #about.blogDetail .social {
+      border-top: 1px solid {color:keyColor} !important;
+    }
+		a,p > a{
+			color: {color:keyColor} !important;
+    }
+    .sliderBnr .sliderTitle p {
+      color: {color:sliderBnrTitleColor} !important;
+    }
+    .categoryBnr .categoryTitle p {
+      color: {color:categoryBnrTitleColor} !important;
+    }
+    
+		#info .col-right ul li .date,
+		.itemDetail .purchase .itemPrice h3,
+		.itemDetail .purchase #itemAttention,
+		.itemDetail .purchase .report,
+    .itemDetail .purchase .preOrder__data,
+		#blog ul li .date a,
+		.sideTitle,
+    #postageOpen,
+    #appsItemDetailCustom #appsItemDetailCustomTag .appsItemDetailCustomTag_slider,
+    .conceptArea p,
+    .communityItemPrice, .communityTextNotice, 
+    #mainContent.itemDetail .purchase .itemPrice .tax, .takeout__text, .communitySignin, .communityModalTextNotice, .ageVerificationWarning {
+      color: {color:subColor} !important;
+    }
+    .conceptArea .second_concept {
+      border: solid 1px {color:subColor};
+      outline: solid 1px {color:subColor};
+    }
+    .headerBottomBnr {
+      background-color: {color:headerBottomBnrColor};
+    }
+    .headerBottomBnr .marquee p, .headerBottomBnrText p {
+      color: {color:headerBottomBnrTextColor};
+    }
+    .menu-trigger span {
+      border: 1px solid {color:headerMenuButtonColor};
+    }
+		.hovline a::after,
+		#category-menu .category-list ul li:before,
+		.itemDetail .purchase #purchase_form .purchaseButton__btn,
+		#contact .inquirySection form input[type=submit] ,
+		.bar,
+		#contact #inquiryCompleteSection a,
+		#salesPeriodModal .salesPeriodModal__btn--submit, .x_mailMagazineSubscribe_submit, .purchaseButtonModal__btn--submit,
+    #membership .mypage .content .definition-description .edit,
+    #membership .guide .mypage-link .link,
+    #membership .login .link,
+    #membership .guide .register .link {
+      background-color: {color:btnBgColor}!important;
+      border: 1px solid {color:btnBorderColor};
+      color: {color:btnTextColor}!important;
+    }
+    #moreItems, #blog .moreItems, .categoryItemArea .moreItems {
+      background-color: {color:moreBtnBgColor}!important;
+      border: 1px solid {color:moreBtnBorderColor};
+    }
+    #moreItems a, #blog .moreItems a, .categoryItemArea .moreItems a {
+      color: {color:moreBtnTextColor}!important;
+    }
+		.slides .slideTitle {
+			color: {color:keyVisualTitleColor};
+		}
+		.slides .slideSubTitle {
+			color: {color:keyVisualSubTitleColor};
+    }
+    .slides .slideButton {
+      background-color: {color:keyVisualButtonColor} !important;
+			color: {color:keyVisualButtonTitleColor} !important;
+    }
+		/*送料詳細設定のオーバレイ（SPのみ*/
+		.centeringFixForPostageInfo {
+			position: fixed !important;
+    }
 
-/* --- 商品詳細・一覧のハート --- */
-.fav-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  font-size: inherit;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+    .ageVerificationWarning {
+      font-size: 23px !important;
+    }
+    @media only screen and (max-width:780px) {
+      .ageVerificationWarning {
+        font-size: 19px !important;
+      }
+    }
 
-.fav-btn::before {
-  content: "♡";
-  color: #aaa;
-  font-size: 1em;
-  width: 1em;
-  text-align: center;
-  display: inline-block;
-  transition: color 0.2s ease;
-  vertical-align: middle;
-}
+    .toppage-bg1 {
+      background-image: url({image:sectionImg1});
+    }
+    .toppage-bg2 {
+      background-image: url({image:sectionImg2});
+    }
+    @media only screen and (max-width:780px) {
+      .toppage-bg1 {
+        background-image: url({image:sectionImg1Sp});
+      }
+      .toppage-bg2 {
+        background-image: url({image:sectionImg2Sp});
+      }
+    }
 
-.fav-btn:hover::before,
-.fav-btn.is-active::before {
-  color: #e74c3c;
-}
+    {block:if-scrollFade}
+      #mainContent.itemDetail .purchase #purchase_form {
+        opacity: 0;
+      }
+    {/block:if-scrollFade}
 
-.fav-btn.is-active::before {
-  content: "♥";
-}
+    {block:not_if-scrollFade}
+      .scrollFade {
+        transition: "all 0ms ease 0s";
+        opacity: 1;
+        transform: translateY(0);
+      }
+    {/block:not_if-scrollFade}
 
-/* --- 固定フローティングボタン --- */
-#favFloatBtn {
-  position: fixed;
-  right: 100px;
-  bottom: 20px;
-  z-index: 2147483647;
-}
+    /* 商品カテゴリページと検索ページでは背景色が適用されるようにした */
+    {block:NoIndexPageCategory}
+    {block:NoIndexPageSearch}
+      .product-wrapper {
+        background-color: {color:sectionArea1BackgroundColor};
+      }
+    {/block:NoIndexPageSearch}
+    {/block:NoIndexPageCategory}
+    .category-item-wrapper {
+      background-color: {color:sectionArea2BackgroundColor};
+    }
+    .galleryArea {
+      background-color: {color:sectionArea3BackgroundColor};
+    }
+    /* トップページのBlogエリアカラー */
+    {block:IndexPage}
+      .blogArea {
+        background-color: {color:sectionArea4BackgroundColor};
+      }
+    {/block:IndexPage}
 
-#favFloatBtn a {
-  background: none;
-  border: none;
-  font-size: 30px;
-  color: #e74c3c;
-  text-decoration: none;
-  cursor: pointer;
-  line-height: 1;
-  padding: 6px;
-  transition: transform 0.2s ease;
-}
-#favFloatBtn a:hover {
-  transform: scale(1.2);
-}
+    .itemPrice .sale,
+    .itemPrice .discount,
+    .soldout_cover,
+    .waitingForSale,
+    .endOfSale,
+    .preOrderItem,
+    #mainContent.itemDetail .purchase #itemSelect .itemOption__caption--error,
+    #mainContent.itemDetail .purchase #itemSelect .itemOption__count--error,
+    .itemDetail .salesPeriod--term,
+    .itemDetail .salesPeriod--willStart,
+    .itemDetail .salesPeriod--willEnd,
+    .itemDetail .salesPeriod--finish,
+    .itemDetail .salesPeriod--available,
+    .itemDetail .preOrder,
+    .itemDetail .lottery,
+    .itemDetail .takeout,
+    .itemDetail .preOrder__label,
+    .itemDetail .lottery__label,
+    .itemDetail .takeout__label,
+    #contact .inquirySection form dd .error-message {
+      color: {color:attentionColor};
+    }
+    #mainContent .item .discount {
+      background-color: {color:attentionColor};
+    }
+    .preOrderItem,
+    .itemDetail .lottery__label,
+    .itemDetail .preOrder__label,
+    .itemDetail .takeout__label {
+      border: 1px solid {color:attentionColor};
+    }
+    #mainContent.itemDetail .purchase .preOrder__data {
+      background-color: {color:preOrderItemBackgroundColor};
+    }
 
-/* --- favorites.html ページ --- */
-body.favorites-page {
-  font-family: "Noto Sans JP", sans-serif;
-  background: #fafafa;
-  margin: 0;
-  padding: 40px 20px 60px;
-  color: #333;
-}
+    #blogContainerTopic .topicLabel {
+      color: {color:topicBlogLabelColor};
+      background-color: {color:topicBlogLabelBackgroundColor};
+    }
+    #blogContainerTopic .blogDetailBase {
+      background-color: {color:topicBlogBackgroundColor};
+    }
+    #mainContent.itemDetail .purchase .itemTitle {
+      border-bottom: 1px solid {color:keyColor} !important;
+    }
+    .social .socialWrapper {
+      border-top: 1px solid {color:keyColor} !important; 
+    }
+    .concept-wrapper {
+      background-color: {color:conceptBackgroundColor};
+    }
+    .header-nav .appsItemCategoryTag_child::after {
+      background-color: {color:headerCategoryBorderColor};
+    }
 
-body.favorites-page h1 {
-  text-align: center;
-  font-size: 20px;
-  letter-spacing: .05em;
-  margin-bottom: 30px;
-}
+    #header .category-list #appsItemCategoryTag {
+      background-color: {color:headerCategoryBackgroundColor};
+    }
 
-.fav-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
+    .header-nav-link::after, #category-menu::after {
+      background-color: {color:headerNavMenuBorderColor};
+    }
+    #mainFooter {
+      background: {color:footerBgColor};
+    }
+    .section-title {
+      color: {color:imageSectionTitleColor};
+    }
+    .section-title-wrapper-no-bg .section-title {
+      textarea: center;
+      color: {color:sectionTitleColor};
+    }
 
-.fav-item {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.08);
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-.fav-item:hover {
-  transform: translateY(-3px);
-}
-.fav-item img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-.fav-item h2 {
-  font-size: 14px;
-  padding: 10px 8px 4px;
-  color: #222;
-  line-height: 1.5;
-}
-.fav-item .price {
-  font-size: 13px;
-  color: #777;
-  padding-bottom: 10px;
-}
-.empty {
-  text-align: center;
-  font-size: 15px;
-  color: #666;
-  margin-top: 80px;
-}
-a.back-link {
-  display: block;
-  text-align: center;
-  margin-top: 40px;
-  color: #e74c3c;
-  text-decoration: none;
-  font-weight: bold;
-}
+
+    {block:if-keyVisualFixHegith}
+      #keyVisualPc .slick-slide, #keyVisualSp .slick-slide {
+        height: 100vh;
+      }
+      @media only screen and (min-width:980px) {
+        #keyVisualPc .slick-slide, #keyVisualSp .slick-slide {
+          height: 90vh;
+        }
+      }
+      @media only screen and (max-width:780px) {
+        #keyVisualPc .slick-slide, #keyVisualSp .slick-slide {
+          height: 100%;
+        }
+      }
+    {/block:if-keyVisualFixHegith}
+
+
+    {block:AppsCommunity}
+    @media only screen and (min-width: 981px) {
+      #header {
+        padding: 20px 10% !important;
+      }
+      #headerBase h1 {
+        width: 20%;
+      }
+      .header-nav-list {
+        width: 64%;
+      }
+    }
+    {/block:AppsCommunity}
+
+    /* category */
+    {block:IndexPageCategory}
+      #itemList {
+        margin-top: 50px !important;
+      }
+    {/block:IndexPageCategory}
+
+    {block:if-bottomFixBtnArea}
+      .msg_startButton {
+        right: 110px !important;
+      }
+      @media only screen and (max-width: 480px) {
+        .msg_startButton {
+          left: 10px !important;
+          right: auto !important;
+        }
+      }
+      @media only screen and (max-width: 320px) {
+        .msg_startButton {
+          left: 10px !important;
+          right: auto !important;
+          width: 200px !important;
+        }
+      }
+    {/block:if-bottomFixBtnArea}
+    .product-reviews {
+      margin-top: 40px;
+      padding: 20px;
+      background: #fafafa;
+      border-radius: 8px;
+    }
+    .product-reviews h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .reviewTitle {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .fav-btn {
+      border:1px solid #ccc;
+      background:#fff;
+      padding:.4em .8em;
+      border-radius:4px;
+      cursor:pointer;
+      font-size:14px;
+    }
+    .fav-btn.is-active .fav-icon {
+      color:#e63946; /* 赤ハート色 */
+      content:"★";
+    }
+    .favorite-area {
+      text-align: right;   /* 中の要素を右寄せ */
+      margin-top: 10px;    /* 少し余白をつけたい場合 */
+    }
+    .favorite-area .fav-btn {
+      display: inline-block;
+    }
+    .cart-link{ position:relative !important; display:inline-block; }
+    .cart-badge{
+      position:absolute; top:-6px; right:-10px;
+      min-width:18px; height:18px; line-height:18px;
+      padding:0 6px; border-radius:999px;
+      background:#e60023; color:#fff; font-size:11px; font-weight:bold;
+      text-align:center; z-index:2147483647; pointer-events:none;
+      box-shadow:0 0 0 2px #fff;
+    }
+  /* トップKVのボタンを消す */
+  #keyVisualPc .slides .slideButton,
+  #keyVisualSp .slides .slideButton{
+    display: none !important;
+  }
+  /* タイトルのテキストがクリックを邪魔しないようにする */
+  #keyVisualPc .slides .titleArea,
+  #keyVisualSp .slides .titleArea{
+    pointer-events: none;
+  }
+  /* 画像に手のカーソル */
+  #keyVisualPc .slides img,
+  #keyVisualSp .slides img{
+    cursor: pointer;
+  }
