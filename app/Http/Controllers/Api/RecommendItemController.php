@@ -8,20 +8,48 @@ use Illuminate\Http\Request;
 
 class RecommendItemController extends Controller
 {
-    // 公開用 (BASEテーマから使う)
 public function index(Request $r)
 {
-$items = RecommendItem::orderBy('sort_order')
-    ->get([
-        'id',
-        'base_item_id', // ★ これを追加
-        'title',
-        'image_url',
-        'url',
-    ]);
-
-
+    $itemId   = $r->query('item_id');
     $callback = $r->query('callback');
+
+    if ($itemId) {
+        // ① 商品別おすすめを最優先
+        $items = RecommendItem::where('base_item_id', $itemId)
+            ->orderBy('sort_order')
+            ->get([
+                'id',
+                'base_item_id',
+                'title',
+                'image_url',
+                'url',
+            ]);
+
+        // ② 商品別が「0件」のときだけ共通おすすめ
+        if ($items->isEmpty()) {
+            $items = RecommendItem::whereNull('base_item_id')
+                ->orderBy('sort_order')
+                ->get([
+                    'id',
+                    'base_item_id',
+                    'title',
+                    'image_url',
+                    'url',
+                ]);
+        }
+    } else {
+        // item_id が無い場合（トップなど）
+        $items = RecommendItem::whereNull('base_item_id')
+            ->orderBy('sort_order')
+            ->get([
+                'id',
+                'base_item_id',
+                'title',
+                'image_url',
+                'url',
+            ]);
+    }
+
     $json = $items->toJson(JSON_UNESCAPED_UNICODE);
 
     if ($callback) {
@@ -29,9 +57,10 @@ $items = RecommendItem::orderBy('sort_order')
             ->header('Content-Type', 'application/javascript; charset=utf-8');
     }
 
-    return response($json, 200)
+    return response($json)
         ->header('Content-Type', 'application/json; charset=utf-8');
 }
+
 
 
 
