@@ -12,10 +12,13 @@ public function index(Request $r)
 {
     $itemId   = $r->query('item_id');
     $callback = $r->query('callback');
+    $limit    = 8; // 表示最大数（調整可）
+
+    $items = collect();
 
     if ($itemId) {
-        // ① 商品別おすすめを最優先
-        $items = RecommendItem::where('base_item_id', $itemId)
+        // ① 商品別おすすめ（最優先）
+        $itemSpecific = RecommendItem::where('base_item_id', $itemId)
             ->orderBy('sort_order')
             ->get([
                 'id',
@@ -25,30 +28,27 @@ public function index(Request $r)
                 'url',
             ]);
 
-        // ② 商品別が「0件」のときだけ共通おすすめ
-        if ($items->isEmpty()) {
-            $items = RecommendItem::whereNull('base_item_id')
-                ->orderBy('sort_order')
-                ->get([
-                    'id',
-                    'base_item_id',
-                    'title',
-                    'image_url',
-                    'url',
-                ]);
-        }
-    } else {
-        // item_id が無い場合（トップなど）
-        $items = RecommendItem::whereNull('base_item_id')
-            ->orderBy('sort_order')
-            ->get([
-                'id',
-                'base_item_id',
-                'title',
-                'image_url',
-                'url',
-            ]);
+        $items = $items->concat($itemSpecific);
     }
+
+    // ② 共通おすすめを後ろに追加
+    $common = RecommendItem::whereNull('base_item_id')
+        ->orderBy('sort_order')
+        ->get([
+            'id',
+            'base_item_id',
+            'title',
+            'image_url',
+            'url',
+        ]);
+
+    $items = $items
+        ->concat($common)
+        // ③ URLで重複除外（idでもOK）
+        ->unique('url')
+        // ④ 件数制限
+        ->take($limit)
+        ->values();
 
     $json = $items->toJson(JSON_UNESCAPED_UNICODE);
 
@@ -60,6 +60,7 @@ public function index(Request $r)
     return response($json)
         ->header('Content-Type', 'application/json; charset=utf-8');
 }
+
 
 
 
