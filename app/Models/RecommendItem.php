@@ -9,6 +9,12 @@ class RecommendItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'image_url', 'url', 'sort_order'];
+    protected $fillable = [
+        'base_item_id',
+        'title',
+        'image_url',
+        'url',
+        'sort_order',
+    ];
 }
 

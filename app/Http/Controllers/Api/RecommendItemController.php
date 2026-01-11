@@ -11,8 +11,15 @@ class RecommendItemController extends Controller
     // 公開用 (BASEテーマから使う)
 public function index(Request $r)
 {
-    $items = RecommendItem::orderBy('sort_order')
-        ->get(['id', 'title', 'image_url', 'url']);
+$items = RecommendItem::orderBy('sort_order')
+    ->get([
+        'id',
+        'base_item_id', // ★ これを追加
+        'title',
+        'image_url',
+        'url',
+    ]);
+
 
     $callback = $r->query('callback');
     $json = $items->toJson(JSON_UNESCAPED_UNICODE);
@@ -38,6 +45,7 @@ public function index(Request $r)
     public function store(Request $request)
     {
         $data = $request->validate([
+            'base_item_id' => 'nullable|string|max:50',
             'title' => 'required|string|max:255',
             'image_url' => 'nullable|string|max:500',
             'url' => 'nullable|string|max:500',
@@ -52,6 +60,7 @@ public function index(Request $r)
     public function update(Request $request, RecommendItem $recommend_item)
     {
         $data = $request->validate([
+            'base_item_id' => 'nullable|string|max:50',
             'title' => 'required|string|max:255',
             'image_url' => 'nullable|string|max:500',
             'url' => 'nullable|string|max:500',
