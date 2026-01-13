@@ -45,7 +45,7 @@ public function index(Request $r)
     $items = $items
         ->concat($common)
         // ③ URLで重複除外（idでもOK）
-        ->unique('url')
+        ->unique('id')
         // ④ 件数制限
         ->take($limit)
         ->values();
