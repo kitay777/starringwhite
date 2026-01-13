@@ -12,4 +12,9 @@ Route::options('{any}', function () {
 })->where('any', '.*');
 Route::get('/recommend', [RecommendItemController::class, 'index']);     // 公開JSON
 Route::apiResource('recommend-items', RecommendItemController::class);   // 管理用API
+
+// 管理用（一覧だけ分離）
+Route::get('/admin/recommend-items/all', [RecommendItemController::class, 'showAll']);
 ?>
+
+

@@ -98,7 +98,7 @@ const form = ref({
 })
 
 const load = async () => {
-  const res = await axios.get("/api/recommend-items")
+  const res = await axios.get("/api/admin/recommend-items/all")
   items.value = res.data
 }
 
