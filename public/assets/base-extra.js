@@ -75,3 +75,52 @@ $(function(){
   },100);
 
 });
+
+$(function(){
+
+  const area = $(".recommend-slider");
+  const itemId = "{block:ItemPage}{ItemId}{/block:ItemPage}";
+
+  if(!itemId) return;
+
+  $.ajax({
+    url: "https://starringwhite.navi.jpn.com/api/recommend-items",
+    dataType: "jsonp",
+    data: { item_id: itemId },
+    success: function(items){
+
+      if(!items || !items.length){
+        $(".recommend-viewed").hide();
+        return;
+      }
+
+      let html = "";
+      items.forEach(item=>{
+        html += `
+          <div class="item">
+            <a href="${item.url}">
+              <img src="${item.image_url}">
+              <h3>${item.title}</h3>
+            </a>
+          </div>`;
+      });
+
+      area.html(html);
+
+      setTimeout(()=>{
+        area.slick({
+          slidesToShow:4,
+          arrows:true,
+          infinite:false,
+          responsive:[
+            { breakpoint:1024, settings:{slidesToShow:3}},
+            { breakpoint:768, settings:{slidesToShow:2.2,arrows:false}},
+            { breakpoint:560, settings:{slidesToShow:1.4,arrows:false}}
+          ]
+        });
+      },100);
+
+    }
+  });
+
+});
