@@ -27,7 +27,7 @@ import { Head } from "@inertiajs/vue3";
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
                         <a
-                            href="/admin/recommend-items"
+                            href="/admin/products"
                             class="text-blue-500 hover:underline"
                             >商品詳細ページ</a
                         >
