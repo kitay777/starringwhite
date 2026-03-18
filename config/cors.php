@@ -10,6 +10,7 @@ return [
         'https://*.thebase.in',                   // 旧BASEドメイン
         'https://*.base.shop',                    // 新BASEドメイン
         'https://dev.starringwhite.navi.jpn.com', // Laravel開発ドメイン
+        'https://asistacce2.handcrafted.jp',
     ],
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],
