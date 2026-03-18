@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\Api\RecommendItemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ProductContentController;
+
+Route::get('/products', [ProductContentController::class, 'index']);
+Route::post('/products', [ProductContentController::class, 'store']);
+Route::get('/product/{id}', [ProductContentController::class, 'show']);
 
 Route::options('{any}', function () {
     return response('', 204, [

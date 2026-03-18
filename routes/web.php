@@ -4,7 +4,23 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Api\ProductContentController;
+Route::delete('/products/{id}', [ProductContentController::class, 'destroy']);
 
+Route::get('/admin/products', function () {
+    return Inertia::render('ProductContent');
+});
+Route::post('/admin/product-content', function (\Illuminate\Http\Request $request) {
+
+    return \App\Models\ProductContent::updateOrCreate(
+        ['base_item_id' => $request->base_item_id],
+        [
+            'description' => $request->description,
+            'size' => $request->size,
+        ]
+    );
+});
+Route::get('/api/product/{id}', [ProductContentController::class, 'show']);
 Route::get('/admin/recommend-items', fn() => Inertia::render('RecommendItems/Index'))
     ->middleware(['auth', 'verified']);
     
