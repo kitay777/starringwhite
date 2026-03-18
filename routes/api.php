@@ -4,6 +4,13 @@ use App\Http\Controllers\Api\RecommendItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductContentController;
 
+use App\Http\Controllers\Api\ContentController;
+
+Route::get('/contents', [ContentController::class, 'index']);
+Route::post('/contents', [ContentController::class, 'store']);
+Route::delete('/contents/{id}', [ContentController::class, 'destroy']);
+Route::get('/content/{id}', [ContentController::class, 'show']);
+
 Route::get('/products', [ProductContentController::class, 'index']);
 Route::post('/products', [ProductContentController::class, 'store']);
 Route::get('/product/{id}', [ProductContentController::class, 'show']);

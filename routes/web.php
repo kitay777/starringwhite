@@ -5,6 +5,12 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Api\ProductContentController;
+use App\Http\Controllers\ContentController;
+
+Route::get('/admin/contents', function () {
+    return Inertia::render('ContentManager');
+});
+
 Route::delete('/products/{id}', [ProductContentController::class, 'destroy']);
 
 Route::get('/admin/products', function () {

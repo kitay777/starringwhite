@@ -124,3 +124,14 @@
     padding: 15px 0;
     white-space: pre-line;
 }
+.x-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .x-posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
