@@ -110,11 +110,10 @@
     font-weight: bold;
 }
 
-.tab-content {
-    display: none;
-    padding: 15px 0;
-}
-
 .tab-content.active {
     display: block;
+}
+
+.tab-content {
+    white-space: pre-line;
 }
