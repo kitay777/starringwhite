@@ -33,6 +33,15 @@ import { Head } from "@inertiajs/vue3";
                         >
                     </div>
                 </div>
+                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900">
+                        <a
+                            href="/admin/contents"
+                            class="text-blue-500 hover:underline"
+                            >NEWS 特集</a
+                        >
+                    </div>
+                </div>
             </div>
         </div>
     </AuthenticatedLayout>
