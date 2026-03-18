@@ -25,6 +25,7 @@ const form = ref({
     base_item_id: "",
     description: "",
     size: "",
+    note: "",
 });
 
 const loading = ref(false);
@@ -35,6 +36,7 @@ const editItem = (item) => {
         base_item_id: item.base_item_id,
         description: item.description,
         size: item.size,
+        note: item.note,
     };
 };
 
@@ -74,6 +76,11 @@ onMounted(fetchItems);
                 <div class="form-row">
                     <label>サイズ</label>
                     <textarea v-model="form.size" rows="3"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label>備考</label>
+                    <textarea v-model="form.note" rows="3"></textarea>
                 </div>
 
                 <button @click="save">保存</button>

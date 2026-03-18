@@ -27,11 +27,12 @@ class ProductContentController extends Controller
             return response()->json(['exists' => false]);
         }
 
-        return response()->json([
-            'exists' => true,
-            'description' => $data->description,
-            'size' => $data->size,
-        ]);
+return response()->json([
+    'exists' => true,
+    'description' => $data->description,
+    'size' => $data->size,
+    'note' => $data->note, // ←追加
+]);
     }
 
     public function store(Request $request)
@@ -41,6 +42,7 @@ class ProductContentController extends Controller
             [
                 'description' => $request->description,
                 'size' => $request->size,
+                'note' => $request->note,
             ]
         );
 

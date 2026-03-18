@@ -10,5 +10,6 @@ class ProductContent extends Model
         'base_item_id',
         'description',
         'size',
+        'note', // ←追加
     ];
 }
